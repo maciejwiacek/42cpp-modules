@@ -5,7 +5,7 @@
 void replace(std::string str, char **av) {
 	std::ofstream outfile;
 
-	outfile.open((std::string)av[1] + ".replace");
+	outfile.open(((std::string)av[1] + ".replace").c_str());
 	if (outfile.fail()) {
 		std::cout << "Something is wrong with outfile!" << std::endl;
 		return;
