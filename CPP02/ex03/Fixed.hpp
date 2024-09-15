@@ -41,9 +41,9 @@ public:
 	Fixed operator/(const Fixed& other) const;
 
 	// Increment/decrement operators
-	Fixed operator++(void);
+	Fixed& operator++(void);
 	Fixed operator++(int);
-	Fixed operator--(void);
+	Fixed& operator--(void);
 	Fixed operator--(int);
 
 };

@@ -4,10 +4,10 @@
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 int main( void ) {
-	Point a = Point(1, 1);
-	Point b = Point(6, 1);
-	Point c = Point(3, 4);
-	Point x = Point(0, 1);
+	Point a = Point(3, 9);
+	Point b = Point(7, 5);
+	Point c = Point(2, 2);
+	Point x = Point(2, 2);
 	if (bsp(a, b, c, x))
 		std::cout << "Point " << x.getX().toFloat() << "x" << x.getY().toFloat() << " is inside of triangle\n";
 	else

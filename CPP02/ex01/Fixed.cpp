@@ -42,11 +42,11 @@ void Fixed::setRawBits(const int raw) {
 }
 
 float Fixed::toFloat() const {
-	return static_cast<float>(this->_numValue / pow(2, this->_fractBits));
+	return static_cast<float>(this->_numValue) / (1 << this->_fractBits);
 }
 
 int Fixed::toInt() const {
-	return static_cast<int>(this->_numValue / pow(2, this->_fractBits));
+	return roundf(this->_numValue / (1 << this->_fractBits));
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {

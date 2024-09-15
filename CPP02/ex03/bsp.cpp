@@ -10,6 +10,12 @@ static float area(const Point a, const Point b, const Point c) {
 	return area >= 0 ? area : -area;
 }
 
+static bool isOnLine(const Point a, const Point b, const Point c) {
+	return ((c.getY().toFloat() < a.getY().toFloat() != c.getY().toFloat() < b.getY().toFloat())
+			&& (c.getX().toFloat() < a.getX().toFloat() != c.getX().toFloat() < b.getX().toFloat())
+			&& ((b.getX().toFloat() - a.getX().toFloat()) * (c.getY().toFloat() - a.getY().toFloat()) == (b.getY().toFloat() - a.getY().toFloat()) * (c.getX().toFloat() - a.getX().toFloat())));
+}
+
 bool bsp(Point const a, Point const b, Point const c, Point const point) {
 	float p1, p2, p3, p4;
 
@@ -17,5 +23,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point) {
 	p2 = area(point, b, c);
 	p3 = area(a, point, c);
 	p4 = area(a, b, point);
-	return p1 == p2 + p3 + p4;
+	if (!isOnLine(a, b, point) && !isOnLine(a, c, point) && !isOnLine(b, c, point) && p1 == p2 + p3 + p4)
+		return true;
+	return false;
 }

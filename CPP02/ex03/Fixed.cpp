@@ -34,11 +34,11 @@ void Fixed::setRawBits(const int raw) {
 
 // Conversion
 float Fixed::toFloat() const {
-	return static_cast<float>(this->_numValue / pow(2, this->_fractBits));
+	return static_cast<float>(this->_numValue) / (1 << this->_fractBits);
 }
 
 int Fixed::toInt() const {
-	return static_cast<int>(this->_numValue / pow(2, this->_fractBits));
+	return roundf(this->_numValue / (1 << this->_fractBits));
 }
 
 // Max/min
@@ -102,7 +102,7 @@ Fixed Fixed::operator/(const Fixed &other) const {
 
 // Increment/decrement operators
 
-Fixed Fixed::operator++() {
+Fixed &Fixed::operator++() {
 	this->_numValue++;
 	return *this;
 }
@@ -113,14 +113,14 @@ Fixed Fixed::operator++(int) {
 	return tmp;
 }
 
-Fixed Fixed::operator--() {
-	this->_numValue--;
+Fixed &Fixed::operator--() {
+	this->_numValue++;
 	return *this;
 }
 
 Fixed Fixed::operator--(int) {
 	Fixed tmp = *this;
-	++(*this);
+	--(*this);
 	return tmp;
 }
 
