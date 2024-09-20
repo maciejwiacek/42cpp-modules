@@ -27,7 +27,7 @@ std::string Brain::getIdea(int i) {
 	if (i < 100)
 		return this->_ideas[i];
 	std::cout << "Index out of range\n";
-	return NULL;
+	return "";
 }
 
 void Brain::setIdea(int i, std::string idea) {

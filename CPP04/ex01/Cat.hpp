@@ -12,4 +12,6 @@ public:
 	Cat& operator=(const Cat& other);
 	virtual ~Cat();
 	void makeSound();
+	void setIdea(int i, std::string idea);
+	void getIdeas();
 };

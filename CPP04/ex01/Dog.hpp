@@ -12,4 +12,6 @@ public:
 	Dog operator=(const Dog& other);
 	virtual ~Dog();
 	void makeSound();
+	void setIdea(int i, std::string idea);
+	void getIdeas();
 };

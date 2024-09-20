@@ -16,7 +16,8 @@ Dog Dog::operator=(const Dog &other) {
 	if (this != &other)
 	{
 		this->_type = other._type;
-		this->_brain = other._brain;
+		this->_brain = new Brain();
+		*this->_brain = *other._brain;
 	}
 	return *this;
 }
@@ -28,4 +29,14 @@ Dog::~Dog() {
 
 void Dog::makeSound() {
 	std::cout << "Woof! Woof!\n";
+}
+
+void Dog::setIdea(int i, std::string idea) {
+	this->_brain->setIdea(i, idea);
+}
+
+void Dog::getIdeas() {
+	for (int i = 0; i < 100; i++)
+		if (!this->_brain->getIdea(i).empty())
+			std::cout << "Idea[" << i << "] is: " << this->_brain->getIdea(i) << std::endl;
 }
