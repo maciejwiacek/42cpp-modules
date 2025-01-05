@@ -59,6 +59,10 @@ void Bureaucrat::signForm(AForm &f) {
 	}
 }
 
+void Bureaucrat::executeForm(const AForm &form) {
+	form.execute(*this);
+}
+
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Grade is too high\n";
 }

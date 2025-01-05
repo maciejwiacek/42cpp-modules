@@ -22,9 +22,9 @@ int main() {
 	a.signForm(s);
 	a.signForm(r);
 	a.signForm(p);
-	s.execute(a);
-	r.execute(a);
-	p.execute(a);
+	a.executeForm(s);
+	a.executeForm(r);
+	a.executeForm(p);
 
 	//Destructing
 	std::cout << YELLOW << "\n\n---------- DESTRUCTING ----------\n\n" << RESET;
