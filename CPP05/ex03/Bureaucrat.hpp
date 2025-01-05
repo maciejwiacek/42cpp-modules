@@ -1,12 +1,12 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+#include <exception>
+#include <sstream>
+#include "Colors.hpp"
 
-#define RESET "\033[0m"
-#define BLUE  "\033[34m"
-#define RED   "\033[31m"
-#define GREEN "\033[32m"
-#define YELLOW "\033[33m"
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -24,12 +24,13 @@ class Bureaucrat {
 		std::string getName() const;
 		size_t getGrade() const;
 
-		// Safe grade setting
-		void setGrade(size_t grade);
-
 		// Grade Manipulation
 		void incrementGrade();
 		void decrementGrade();
+
+		// Form Manipulation
+		void signForm(AForm& f);
+		void executeForm(AForm const& form);
 
 	// Exceptions
 	class GradeTooHighException : public std::exception {

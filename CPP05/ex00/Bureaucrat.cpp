@@ -4,8 +4,9 @@ Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) {
 	std::cout << GREEN << "Bureaucrat default constructor called\n" << RESET;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, size_t grade): _name(name), _grade(grade) {
-	std::cout << GREEN << "Bureaucrat named " << this->_name << " created with a grade of " << this->_grade << std::endl << RESET;
+Bureaucrat::Bureaucrat(const std::string name, size_t grade): _name(name) {
+	std::cout << GREEN << "Bureaucrat constructor called with name " << this->_name << std::endl << RESET;
+	this->setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) {
@@ -32,15 +33,26 @@ size_t Bureaucrat::getGrade() const {
 	return this->_grade;
 }
 
+void Bureaucrat::setGrade(size_t grade) {
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		this->_grade = grade;
+}
+
 void Bureaucrat::incrementGrade() {
 	if (this->_grade == 1)
 		throw GradeTooHighException();
+	std::cout << "Grade incremented\n";
 	this->_grade--;
 }
 
 void Bureaucrat::decrementGrade() {
 	if (this->_grade == 150)
 		throw GradeTooLowException();
+	std::cout << "Grade decremented\n";
 	this->_grade++;
 }
 

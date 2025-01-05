@@ -29,6 +29,9 @@ class Bureaucrat {
 		std::string getName() const;
 		size_t getGrade() const;
 
+		// Safe grade setting
+		void setGrade(size_t grade);
+
 		// Grade Manipulation
 		void incrementGrade();
 		void decrementGrade();

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Colors.hpp"
 #include <iostream>
 #include <string>
 #include <exception>
@@ -7,8 +8,8 @@
 
 class Bureaucrat;
 
-class Form {
-	private:
+class AForm {
+	protected:
 		std::string const _name;
 		bool _isSigned;
 		size_t const _signGrade;
@@ -16,11 +17,11 @@ class Form {
 
 	public:
 		// Initializers
-		Form();
-		Form(const std::string& name, size_t signGrade, size_t execGrade);
-		Form(const Form& other);
-		Form& operator=(const Form& other);
-		~Form();
+		AForm();
+		AForm(const std::string& name, size_t signGrade, size_t execGrade);
+		AForm(const AForm& other);
+		AForm& operator=(const AForm& other);
+		~AForm();
 		// Getters
 		std::string const getName();
 		bool getIsSigned();
@@ -28,13 +29,14 @@ class Form {
 		size_t getExecGrade();
 		// Manipulation
 		void beSigned(const Bureaucrat& b);
+		virtual void execute(const Bureaucrat& b) const;
 		// Exceptions
 		class GradeTooLowException : public std::exception {
 				virtual const char *what() const throw();
 		};
-		class GradeTooHighException : public std::exception {
+		class FormNotSignedException : public std::exception {
 				virtual const char *what() const throw();
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, Form& f);
+std::ostream& operator<<(std::ostream& os, AForm& f);
