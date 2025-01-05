@@ -8,9 +8,13 @@ AForm::AForm()
 }
 
 AForm::AForm(const std::string &name, size_t signGrade, size_t execGrade)
-	: _name(name), _isSigned(false),
-	_signGrade(signGrade), _execGrade(execGrade) {
+		: _name(name), _isSigned(false),
+		  _signGrade(signGrade), _execGrade(execGrade) {
 	std::cout << GREEN << "Form " << this->_name << " constructor called\n" << RESET;
+	if (signGrade > 150 || execGrade > 150)
+		throw AForm::GradeTooLowException();
+	if (signGrade < 1 || execGrade < 1)
+		throw AForm::GradeTooHighException();
 }
 
 AForm::AForm(const AForm &other)
@@ -49,7 +53,6 @@ size_t AForm::getExecGrade() {
 void AForm::beSigned(const Bureaucrat &b) {
 	if (b.getGrade() <= this->_signGrade) {
 		this->_isSigned = true;
-		std::cout << b.getName() << " signed " << this->_name << std::endl;
 	} else {
 		throw GradeTooLowException();
 	}
@@ -60,7 +63,11 @@ void AForm::execute(const Bureaucrat &b) const {
 }
 
 const char *AForm::GradeTooLowException::what() const throw() {
-	return "Couldn't sign a form\n";
+	return "Grade too low\n";
+}
+
+const char *AForm::GradeTooHighException::what() const throw() {
+	return "Grade too high\n";
 }
 
 const char *AForm::FormNotSignedException::what() const throw() {

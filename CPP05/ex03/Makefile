@@ -4,7 +4,7 @@ SRCS = AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialP
 OBJS = $(SRCS:.cpp=.o)
 
 COMP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 all: $(NAME)
 

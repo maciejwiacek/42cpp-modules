@@ -10,7 +10,7 @@ RobotomyRequestForm::RobotomyRequestForm()
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
 	: AForm("RobotomyRequestForm", 72, 45),
 	_target(target) {
-	std::cout << GREEN << "RobotomyRequestForm " << this->_name << " was created\n" << RESET;
+	std::cout << GREEN << "RobotomyRequestForm " << this->_target << " was created\n" << RESET;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)

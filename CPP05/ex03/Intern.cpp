@@ -40,8 +40,8 @@ AForm* createShrubbery(std::string target)
 }
 
 AForm *Intern::makeForm(std::string name, std::string target) {
-	std::string names[] = {"robotomy request", "presidential request", "shrubbery request"};
-	AForm *(*creatingFuncs[])(std::string) = {createPresidential, createRobotomy, createShrubbery};
+	std::string names[] = {"robotomy request", "presidential pardon", "shrubbery creation"};
+	AForm *(*creatingFuncs[])(std::string) = {createRobotomy, createPresidential, createShrubbery};
 
 	for (int i = 0; i < 3; i++) {
 		if (name == names[i]) {

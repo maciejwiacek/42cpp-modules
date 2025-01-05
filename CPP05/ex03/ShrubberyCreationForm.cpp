@@ -10,7 +10,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
 	: AForm("ShrubberyCreationForm", 145, 137),
 	_target(target) {
-	std::cout << GREEN << "ShrubberyCreationForm " << this->_name << " was created\n" << RESET;
+	std::cout << GREEN << "ShrubberyCreationForm " << this->_target << " was created\n" << RESET;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)

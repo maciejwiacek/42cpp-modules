@@ -10,7 +10,7 @@ PresidentialPardonForm::PresidentialPardonForm()
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
 	: AForm("PresidentialPardonForm", 25, 5),
 	_target(target) {
-	std::cout << GREEN << "PresidentialPardonForm " << this->_name << " was created\n" << RESET;
+	std::cout << GREEN << "PresidentialPardonForm " << this->_target << " was created\n" << RESET;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
