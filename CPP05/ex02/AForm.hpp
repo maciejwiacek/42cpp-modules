@@ -21,7 +21,7 @@ class AForm {
 		AForm(const std::string& name, size_t signGrade, size_t execGrade);
 		AForm(const AForm& other);
 		AForm& operator=(const AForm& other);
-		~AForm();
+		virtual ~AForm();
 		// Getters
 		std::string const getName();
 		bool getIsSigned();
@@ -32,6 +32,9 @@ class AForm {
 		virtual void execute(const Bureaucrat& b) const;
 		// Exceptions
 		class GradeTooLowException : public std::exception {
+				virtual const char *what() const throw();
+		};
+		class GradeTooHighException : public std::exception {
 				virtual const char *what() const throw();
 		};
 		class FormNotSignedException : public std::exception {
