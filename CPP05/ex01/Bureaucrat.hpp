@@ -1,12 +1,17 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+#include <exception>
+#include <sstream>
 
 #define RESET "\033[0m"
 #define BLUE  "\033[34m"
 #define RED   "\033[31m"
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -27,6 +32,9 @@ class Bureaucrat {
 		// Grade Manipulation
 		void incrementGrade();
 		void decrementGrade();
+
+		// Form Manipulation
+		void signForm(Form& f);
 
 	// Exceptions
 	class GradeTooHighException : public std::exception {

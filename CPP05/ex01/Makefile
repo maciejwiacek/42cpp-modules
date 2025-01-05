@@ -1,6 +1,6 @@
 NAME = bureaucrat
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = Form.cpp Bureaucrat.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 COMP = c++
