@@ -1,9 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
 #include <ctime>
-#include <random>
 
 class Base {
 	public:

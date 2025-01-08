@@ -1,8 +1,9 @@
 #pragma once
 
-#include <string>
 #include <iostream>
+#include <string>
 #include <cstdlib>
+#include <limits.h>
 
 typedef enum Type {
 	CHAR = 0,

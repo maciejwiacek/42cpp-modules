@@ -27,7 +27,7 @@ int main() {
 	safeCall(*makumba, &Bureaucrat::incrementGrade);
 	safeCall(*makumba, &Bureaucrat::decrementGrade);
 
-	std::cout << BLUE << "Decrement success | Increment failure\n" << RESET;
+	std::cout << BLUE << "Decrement failure | Increment success\n" << RESET;
 	makumba->setGrade(150);
 	safeCall(*makumba, &Bureaucrat::decrementGrade);
 	safeCall(*makumba, &Bureaucrat::incrementGrade);

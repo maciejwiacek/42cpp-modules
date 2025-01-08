@@ -33,6 +33,7 @@ int main() {
 		form = new Form("formularz reklamacyjny", 1, 1);
 	} catch (std::exception& e) {
 		std::cout << e.what();
+		delete formularz;
 		return 1;
 	}
 
@@ -54,7 +55,7 @@ int main() {
 
 	std::cout << BLUE << "Sign a form using signForm\n" << RESET;
 	std::cout << "Form sign status: " << std::boolalpha << form->getIsSigned() << std::endl;
-	makumba->setGrade(150);
+	makumba->setGrade(1);
 	try {
 		makumba->signForm(*form);
 	} catch (std::exception& e) {

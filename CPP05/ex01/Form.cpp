@@ -53,7 +53,6 @@ size_t Form::getExecGrade() {
 void Form::beSigned(const Bureaucrat &b) {
 	if (b.getGrade() <= this->_signGrade) {
 		this->_isSigned = true;
-		std::cout << b.getName() << " signed " << this->_name << std::endl;
 	} else {
 		throw Bureaucrat::GradeTooLowException();
 	}
