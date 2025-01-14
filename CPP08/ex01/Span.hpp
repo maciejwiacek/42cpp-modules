@@ -10,6 +10,8 @@ class Span {
 		Span();
 	public:
 		Span(unsigned int items);
+		Span(const Span& other);
+		Span& operator=(const Span& other);
 		~Span();
 
 		void addNumber(int number);

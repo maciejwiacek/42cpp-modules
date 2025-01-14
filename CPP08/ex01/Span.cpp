@@ -4,6 +4,18 @@ Span::Span(unsigned int items) : _items(items) {
 	_container.reserve(items);
 }
 
+Span::Span(const Span &other) {
+	*this = other;
+}
+
+Span &Span::operator=(const Span &other) {
+	if (this != &other) {
+		this->_container = other._container;
+		this->_items = other._items;
+	}
+	return *this;
+}
+
 Span::~Span() { }
 
 void Span::addNumber(int number) {

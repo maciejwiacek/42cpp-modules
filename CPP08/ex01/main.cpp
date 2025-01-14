@@ -13,6 +13,10 @@ int main() {
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
+		Span test = sp;
+		std::cout << "Shortest span: " << test.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << test.longestSpan() << std::endl;
+
 		Span largeSpan(10000);
 		for (int i = 0; i < 10000; ++i) {
 			largeSpan.addNumber(i * 2);
