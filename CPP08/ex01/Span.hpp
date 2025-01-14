@@ -13,6 +13,9 @@ class Span {
 		~Span();
 
 		void addNumber(int number);
+		void addNumber(unsigned int range, time_t time);
 		int shortestSpan();
 		int longestSpan();
+
+		void printSpan();
 };

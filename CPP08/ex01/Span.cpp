@@ -12,6 +12,17 @@ void Span::addNumber(int number) {
 	_container.push_back(number);
 }
 
+void Span::addNumber(unsigned int range, time_t time) {
+	srand(time);
+	for (unsigned int i = 0; i < range; i++) {
+		try {
+			addNumber(rand() % 100);
+		} catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
+}
+
 int Span::shortestSpan() {
 	if (_container.size() < 2)
 		throw std::runtime_error("Couldn't get shortest span (not enough items)");
@@ -34,4 +45,11 @@ int Span::longestSpan() {
 	int max = *std::max_element(_container.begin(), _container.end());
 
 	return max - min;
+}
+
+void Span::printSpan() {
+	std::cout << "Your span is: ";
+	for (std::vector<int>::iterator it = _container.begin(); it != _container.end(); it++)
+		std::cout << *it << " ";
+	std::cout << std::endl;
 }
